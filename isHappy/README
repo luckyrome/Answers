@@ -1,0 +1,18 @@
+isHappy was an interview question I received and it seemed fairly straight forward.
+
+Essentially there is a function which takes in an integer value, separates the values digits,
+squares the digits then sums them together. If the sum is 1, the function returns true. Otherwise,
+the function tries again with the new sum. If the sequence repeats at all, it will repeat forever
+because of the deterministic nature of the operations.
+
+Because this question was centered around squaring and summing numbers up, I stayed in math-mode
+and tried to do some fancy math to split the digits. Unfortunately during interviews it's hard to
+realize very simple mistakes (and I was trying to rush. A definite no-no when dealing with math).
+Luckily the string-split method (where you stringify a number then split it) was super easy, but I 
+wish I could've gotten the number-crunching method down too. 
+
+Contained in this folder is the number crunching method that I meant to fire out, but I'd gotten
+confused early on. See the source for an example of what the process looks like :)
+
+Also note that part of the spec was to assume sane inputs (numbers greater than one), hence lack of 
+checks in this particular problem
