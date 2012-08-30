@@ -42,8 +42,9 @@ window.isHappy = function (input, prev) {
     // also, had to convert Math.log to Math.log-base10 because Math.log is the natural log
     for (var i = 0; i <= Math.floor(Math.log(input) / Math.log(10)); i++ ) {
 
-        //this part is "cut off right side" with the input/pow, then "cut off left side" with mod 10. Had to floor because Math.pow converts int into float
-        var singleDigit = Math.floor(input / Math.pow(10,i)) % 10;
+        // this part is "cut off right side" with the input/pow, then "cut off left side" with mod 10. Had to floor because Math.pow converts int into float
+        // I tried to make this faster by using bitwise operators instead of Math.floor (see http://stackoverflow.com/questions/4228356/integer-division-in-javascript)
+        var singleDigit = ~~(input / Math.pow(10,i)) % 10;
         sum += Math.pow(singleDigit, 2);
     }
     if (sum == 1) {
@@ -51,5 +52,34 @@ window.isHappy = function (input, prev) {
     } else {
         prevArray.push(input);
         return window.isHappy(sum, prevArray);
+    }
+}
+
+/**
+ * String-conversion version of above
+ * @see isHappy
+ */
+window.isStrHappy = function (input, prev) {
+    var prevArray = prev;
+
+    if (typeof prevArray == 'undefined') {
+        prevArray = [];
+    }
+
+    if (arrayContains(prevArray, input)) {
+        return false;
+    }
+    sum = 0;
+    var inputStr = input.toString();
+
+    for (var i = 0; i < inputStr.length; i++ ) {
+        var singleDigit = parseInt(inputStr.charAt(i));
+        sum += Math.pow(singleDigit, 2);
+    }
+    if (sum == 1) {
+        return true;
+    } else {
+        prevArray.push(input);
+        return window.isStrHappy(sum, prevArray);
     }
 }
