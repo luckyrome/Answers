@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  div(id='message')
+  div(class='controls')
+    form(id='urlForm' onsubmit='return false;')
+        input(placeholder='http://' value='http://skynet.ramencodes.com/')
+        button Go!
+  div(id='stage')
+    div(class='tagsWrapper')
+        h2='Tag Counts'
+        div(id='tags')
+    div(class='sourceWrapper')
+        h2='Markup'
+        div(id='source')

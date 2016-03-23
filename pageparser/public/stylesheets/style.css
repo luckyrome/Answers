@@ -1,0 +1,95 @@
+body {
+    max-width:900px;
+    margin: 0 auto;
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+h2 {
+    margin-top: 0;
+}
+.controls input {
+    box-sizing: border-box;
+}
+.controls input,
+.controls button{
+    width: 100%;
+    display: block;
+}
+.controls button:hover {
+    cursor: pointer;
+}
+
+#stage {
+    margin: 30px auto;
+}
+#message {
+    display:none;
+}
+#message.active {
+    display: block;
+    border: 1px solid #000;
+    margin: 30px 0;
+    padding: 20px;
+    background-color: #dedede;
+
+}
+#tags .tag-selector-header {
+    border-bottom: 1px solid;
+    font-weight:bold;
+}
+#tags ul{
+    display: block;
+    padding: 0;
+    margin: 0;
+}
+#tags .tag-selector {
+    border-bottom: 1px solid lightgrey;
+    display:block;
+    padding:0;
+    margin:0;
+}
+#tags .tag-selector p, #tags .tag-selector-header p {
+    display:inline-block;
+    padding: 20px;
+    margin: 0;
+}
+#tags .tag-selector p.tag-name, #tags .tag-selector-header p.tag-header {
+    width:100px;
+    border-right: 1px dashed lightgrey;
+
+}
+#tags .tag-selector:hover {
+    cursor: pointer;
+    background-color: lightyellow;
+}
+#source {
+    white-space: pre;
+    font-family:monospace;
+    background-color: #eaeaea;
+    padding:20px;
+    overflow: auto;
+}
+#source div {
+    display:inline-block;
+}
+
+@media (min-width: 1500px) {
+    body {
+        max-width: 100%
+    }
+    .controls input{
+        width: 300px;
+        margin-right:5px;
+        display: inline-block;
+    }
+    .controls button {
+        display: inline-block;
+        width: auto;
+    }
+    .tagsWrapper {
+        float: left;
+    }
+    #tags {
+        padding-right: 50px;
+    }
+}
